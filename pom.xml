@@ -36,6 +36,7 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>com.jfinal</groupId>
       <artifactId>jetty-server</artifactId>
@@ -47,11 +48,22 @@
       <artifactId>jfinal</artifactId>
       <version>3.2</version>
     </dependency>
+
+    <!--json-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.28</version>
+    </dependency>
+
+    <!--log-->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.16</version>
     </dependency>
+
+    <!--mysql-->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -62,10 +74,26 @@
       <artifactId>druid</artifactId>
       <version>1.0.29</version>
     </dependency>
+
+    <!--cos-->
     <dependency>
       <groupId>com.jfinal</groupId>
       <artifactId>cos</artifactId>
       <version>2017.5</version>
+    </dependency>
+
+    <!--common-->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.5</version>
+    </dependency>
+
+    <!--redis-->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
     </dependency>
   </dependencies>
 

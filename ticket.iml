@@ -35,6 +35,7 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:8.1.8.v20121106" level="project" />
     <orderEntry type="library" name="Maven: com.jfinal:jfinal:3.2" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:3.2.5" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.28" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.20" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid:1.0.29" level="project" />
@@ -57,5 +58,8 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: com.jfinal:cos:2017.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.5" level="project" />
+    <orderEntry type="library" name="Maven: redis.clients:jedis:2.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.4.2" level="project" />
   </component>
 </module>
