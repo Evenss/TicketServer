@@ -29,6 +29,7 @@
     </repository>
   </repositories>
 
+  <!--junit-->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -37,6 +38,7 @@
       <scope>test</scope>
     </dependency>
 
+    <!--JFinal-->
     <dependency>
       <groupId>com.jfinal</groupId>
       <artifactId>jetty-server</artifactId>
@@ -54,6 +56,11 @@
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>1.2.28</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.0</version>
     </dependency>
 
     <!--log-->
@@ -95,11 +102,17 @@
       <artifactId>jedis</artifactId>
       <version>2.9.0</version>
     </dependency>
-
     <dependency>
       <groupId>de.ruedigermoeller</groupId>
       <artifactId>fst</artifactId>
       <version>2.50</version>
+    </dependency>
+
+    <!--okhttp-->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>3.8.1</version>
     </dependency>
 
   </dependencies>
