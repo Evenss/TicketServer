@@ -1,12 +1,18 @@
 package com.even.service;
 
+import com.even.bean.monitor.TicketMonitor;
+import com.even.bean.monitor.TicketMonitorInfo;
 import com.even.bean.query.TicketData;
 import com.even.model.UserMonitorTicket;
 import com.even.spider.query.NetCallBack;
 import com.even.spider.query.NetworkConnector;
 import com.even.util.APIUtil;
+import com.even.util.StringUtil;
 import com.even.util.TimeUtil;
+import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TicketService {
@@ -24,16 +30,49 @@ public class TicketService {
         return ticketInfo;
     }
 
-    public static boolean setMonitor(int user_id,String dptStation, String arrStation,long startDate,List<String> trainNo,List<String> seats) {
+    public static boolean setMonitor(int userId, String dptStation, String arrStation, long startDate, List<String> trainNo, List<String> seats) {
         return new UserMonitorTicket()
-                .setUserId(user_id)
+                .setUserId(userId)
                 .setState(true)
                 .setTicketCount(-1)
                 .setDptStationName(dptStation)
                 .setArrStationName(arrStation)
-                .set("start_date",startDate)
+                .set("start_date", startDate)
                 .setTrainNum(trainNo.toString())
                 .setSeats(seats.toString())
-                .setPrice((float)0).save();
+                .setPrice((float) 0).save();
     }
+
+    public static TicketMonitor queryMyOrder(int userId, int pageSize, int pageNum) {
+        Page<UserMonitorTicket> ticketList = UserMonitorTicket.dao.paginate(
+                pageNum,
+                pageSize,
+                "SELECT *",
+                "FROM user_monitor_ticket WHERE user_id = ?",
+                userId);
+
+        TicketMonitor ticketMonitor = new TicketMonitor();
+        List<TicketMonitorInfo> list = new ArrayList<TicketMonitorInfo>();
+
+        ticketMonitor.data.lastPage = ticketList.isLastPage();
+        ticketMonitor.data.pageNumber = ticketList.getPageNumber();
+        for(UserMonitorTicket ticket : ticketList.getList()){
+            TicketMonitorInfo info = new TicketMonitorInfo();
+            info.dptStationName = ticket.getDptStationName();
+            info.arrStationName = ticket.getArrStationName();
+            info.trainNo = StringUtil.listUtil(ticket.getTrainNum());
+            if(ticket.getState()){
+                info.state = 1;//已完成
+            }else{
+                info.state = 0;
+            }
+            info.startDate = ticket.getStartDate();
+            info.seats = StringUtil.listUtil(ticket.getSeats());
+            info.price = ticket.getPrice();
+            list.add(info);
+        }
+        ticketMonitor.data.list = list;
+        return ticketMonitor;
+    }
+
 }

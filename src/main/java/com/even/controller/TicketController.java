@@ -3,6 +3,7 @@ package com.even.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.even.bean.monitor.TicketMonitor;
 import com.even.bean.query.MobileTicket;
 import com.even.bean.query.MobileTicketInfo;
 import com.even.bean.query.TicketData;
@@ -96,6 +97,25 @@ public class TicketController extends Controller {
 
     // 用户标记车次查询
     public void my_order() {
+        JSONObject json = getAttr("data");
+        if (json == null) throw new RuntimeException("数据异常");
+        String token = json.getString("token");
+        if (StringUtils.isBlank(token)) throw new RuntimeException("token异常");
+        int userId = json.getInteger("user_id");
+        int pageSize = json.getInteger("page_size");
+        int pageNum = json.getInteger("page_number");
 
+        try {
+            TicketMonitor ticketMonitor = TicketService.queryMyOrder(userId,pageSize,pageNum);
+            if(ticketMonitor != null){
+                String returnData = JSON.toJSONString(ticketMonitor);
+                renderJson(returnData);
+            }else{
+                renderJson(ReturnUtil.ERROR("操作失败。"));
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            renderJson(ReturnUtil.ERROR("查询异常"));
+        }
     }
 }
