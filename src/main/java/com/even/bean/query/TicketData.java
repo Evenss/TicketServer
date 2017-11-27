@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * 向网页请求票信息的response
+ */
+
 public class TicketData {
     @SerializedName("ret")
     public boolean code;

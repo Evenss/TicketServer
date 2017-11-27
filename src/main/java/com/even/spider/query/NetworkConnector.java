@@ -27,6 +27,7 @@ public class NetworkConnector {
         JPG = MediaType.parse("image/jpg");
     }
 
+    //异步请求
     public void query(String url, final NetCallBack callBack){
         Request request = new Request.Builder()
                 .url(url)
@@ -48,5 +49,25 @@ public class NetworkConnector {
                 }
             }
         });
+    }
+
+    //同步请求
+    public TicketData.TicketInfo query(String url){
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Call call = mClient.newCall(request);
+        Response response;
+        TicketData ticketResponse = null;
+        try {
+            response = call.execute();
+            String string = response.body().string();
+            System.out.println(string);
+             ticketResponse = mGson.fromJson(string, TicketData.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ticketResponse.data;
     }
 }

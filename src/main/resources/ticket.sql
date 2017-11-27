@@ -13,7 +13,7 @@ CREATE TABLE `user` (
 CREATE TABLE `user_monitor_ticket` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL COMMENT '用户ID',
-  `state` tinyint(1) NOT NULL COMMENT '订单状态 0-已完成 1-票量监控中',
+  `state` tinyint(1) NOT NULL COMMENT '订单状态 0-false-已完成 1-true-票量监控中',
   `ticket_count` int(11) NOT NULL COMMENT '票余量',
   `dpt_station_name` VARCHAR (50) NOT NULL COMMENT '出发站',
   `arr_station_name` VARCHAR (50) NOT NULL COMMENT '目的站',

@@ -27,7 +27,7 @@ public class MobileInterceptor implements Interceptor {
             }
             if (json != null) {
                 String requestUrl = controller.getRequest().getRequestURI();
-                if (requestUrl.contains("/user/login") || requestUrl.contains("/user/register")){
+                if (requestUrl.contains("/user/login") || requestUrl.contains("/user/register") || requestUrl.contains("/ticket/query")){
                     inv.getController().setAttr("data", json);
                     inv.invoke();
                 }else{
