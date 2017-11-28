@@ -37,6 +37,7 @@
           <element id="library" level="project" name="Maven: com.cedarsoftware:json-io:2.5.1" />
           <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.8.1" />
           <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.13.0" />
+          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.9.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

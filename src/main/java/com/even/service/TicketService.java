@@ -10,7 +10,6 @@ import com.even.util.APIUtil;
 import com.even.util.StringUtil;
 import com.even.util.TimeUtil;
 import com.jfinal.plugin.activerecord.Page;
-import com.jfinal.plugin.activerecord.Record;
 
 import java.util.ArrayList;
 import java.util.List;

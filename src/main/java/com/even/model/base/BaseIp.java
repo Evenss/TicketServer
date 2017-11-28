@@ -27,6 +27,15 @@ public abstract class BaseIp<M extends BaseIp<M>> extends Model<M> implements IB
 		return getStr("ip");
 	}
 
+	public M setPort(java.lang.Integer port) {
+		set("port", port);
+		return (M)this;
+	}
+
+	public java.lang.Integer getPort() {
+		return getInt("port");
+	}
+
 	public M setUsable(java.lang.Boolean usable) {
 		set("usable", usable);
 		return (M)this;
