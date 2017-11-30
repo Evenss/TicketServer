@@ -5,6 +5,7 @@ import com.even.controller.TicketController;
 import com.even.controller.UserController;
 import com.even.interceptor.MobileInterceptor;
 import com.even.model._MappingKit;
+import com.even.spider.monitor.IPSpider;
 import com.jfinal.config.*;
 import com.jfinal.core.JFinal;
 import com.jfinal.kit.PropKit;
@@ -17,6 +18,12 @@ public class AppConfig extends JFinalConfig{
 
     public static void main(String[] args) {
         JFinal.start("src/main/webapp", 8080, "/");
+    }
+
+    @Override
+    public void afterJFinalStart() {
+        super.afterJFinalStart();
+        IPSpider.start();
     }
 
     /**

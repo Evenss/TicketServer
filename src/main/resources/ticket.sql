@@ -29,6 +29,7 @@ CREATE TABLE `ip` (
   `ip` VARCHAR (50) NOT NULL COMMENT 'IP地址',
   `port` int (11) NOT NULL COMMENT '端口',
   `usable` tinyint(1) NOT NULL COMMENT '今日是否可用 0-不可用 1-可用',
+  UNIQUE (`ip`,`port`),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -36,7 +36,7 @@ public class JsoupUtil {
                         .get();
                 return doc;
             } catch (Exception e) {
-                e.printStackTrace();
+//                e.printStackTrace();
                 continue;
             }
         }
@@ -80,7 +80,7 @@ public class JsoupUtil {
                 }
                 return;
             } catch (Exception e) {
-                e.printStackTrace();
+//                e.printStackTrace();
                 continue;
             }
         }
