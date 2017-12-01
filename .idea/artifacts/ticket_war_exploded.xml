@@ -38,6 +38,14 @@
           <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.8.1" />
           <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.13.0" />
           <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.9.2" />
+          <element id="library" level="project" name="Maven: javax.mail:javax.mail-api:1.6.0" />
+          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.0" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: com.gexin.platform:gexin-rp-sdk-http:4.0.1.9" />
+          <element id="library" level="project" name="Maven: com.gexin.platform:gexin-rp-sdk-template:4.0.0.8" />
+          <element id="library" level="project" name="Maven: com.gexin.platform:gexin-rp-sdk-base:4.0.0.14" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.5.0" />
+          <element id="library" level="project" name="Maven: com.gexin.platform:gexin-rp-fastjson:1.0.0.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

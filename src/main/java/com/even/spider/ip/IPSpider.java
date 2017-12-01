@@ -1,4 +1,4 @@
-package com.even.spider.monitor;
+package com.even.spider.ip;
 
 import com.even.model.Ip;
 import com.even.service.SpiderService;
@@ -22,10 +22,10 @@ public class IPSpider {
 
     public static void start() {
         System.out.println("IPSpider start");
-        updateIpList();
-        System.out.println("IP table update done");
         new Thread(new Runnable() {
             public void run() {
+                updateIpList();
+                System.out.println("IP table update done");
                 for (int i = 1; i <= 5; i++) {
                     getNetProxy(i);
                 }

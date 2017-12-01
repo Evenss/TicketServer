@@ -72,5 +72,13 @@
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.13.0" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:javax.mail-api:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.gexin.platform:gexin-rp-sdk-http:4.0.1.9" level="project" />
+    <orderEntry type="library" name="Maven: com.gexin.platform:gexin-rp-sdk-template:4.0.0.8" level="project" />
+    <orderEntry type="library" name="Maven: com.gexin.platform:gexin-rp-sdk-base:4.0.0.14" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.gexin.platform:gexin-rp-fastjson:1.0.0.0" level="project" />
   </component>
 </module>
