@@ -16,6 +16,7 @@ import java.util.List;
 
 public class TicketService {
 
+    //联网获取票信息
     public static void query(String departure, String destination, long date, boolean isGD, int pageSize, int pageNum, NetCallBack callBack) {
         String dateStr = TimeUtil.getTimeFormatted(date, TimeUtil.FORMAT_YEAR_MONTH_DAY);
         String url = APIUtil.getTicketUrl(departure, destination, dateStr, pageNum, pageSize);
@@ -29,10 +30,11 @@ public class TicketService {
         return ticketInfo;
     }
 
+    // 设置票余量监控
     public static boolean setMonitor(int userId, String dptStation, String arrStation, long startDate, List<String> trainNo, List<String> seats) {
         return new UserMonitorTicket()
                 .setUserId(userId)
-                .setState(true)
+                .setState(false)
                 .setTicketCount(-1)
                 .setDptStationName(dptStation)
                 .setArrStationName(arrStation)
@@ -42,6 +44,14 @@ public class TicketService {
                 .setPrice((float) 0).save();
     }
 
+    // 修改票监控中的信息
+    public static UserMonitorTicket updateMonitorTicket(int userId, int ticketCount, float price) {
+        UserMonitorTicket ticket = UserMonitorTicket.dao.findById(userId);
+        ticket.setState(true).setTicketCount(ticketCount).setPrice(price).save();
+        return ticket;
+    }
+
+    //查询自己的订单
     public static TicketMonitor queryMyOrder(int userId, int pageSize, int pageNum) {
         Page<UserMonitorTicket> ticketList = UserMonitorTicket.dao.paginate(
                 pageNum,
@@ -55,14 +65,14 @@ public class TicketService {
 
         ticketMonitor.data.lastPage = ticketList.isLastPage();
         ticketMonitor.data.pageNumber = ticketList.getPageNumber();
-        for(UserMonitorTicket ticket : ticketList.getList()){
+        for (UserMonitorTicket ticket : ticketList.getList()) {
             TicketMonitorInfo info = new TicketMonitorInfo();
             info.dptStationName = ticket.getDptStationName();
             info.arrStationName = ticket.getArrStationName();
             info.trainNo = StringUtil.listUtil(ticket.getTrainNum());
-            if(ticket.getState()){
+            if (ticket.getState()) {
                 info.state = 1;//已完成
-            }else{
+            } else {
                 info.state = 0;
             }
             info.startDate = ticket.getStartDate();
@@ -72,6 +82,11 @@ public class TicketService {
         }
         ticketMonitor.data.list = list;
         return ticketMonitor;
+    }
+
+    //查询正在监控的票
+    public static List<UserMonitorTicket> queryMonitorOrder() {
+        return UserMonitorTicket.dao.find("SELECT * FROM user_monitor_ticket WHERE state = ?", 0);
     }
 
 }

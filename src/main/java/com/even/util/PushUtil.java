@@ -12,7 +12,7 @@ public class PushUtil {
     private static String appId = "PSg0aZXd6O7m9pmR1kIfd9";
     private static String appKey = "v0mU1uSbKT8Jdce2nie0R2";
     private static String masterSecret = "lnvVt4cWb89DGueUF4kJU5";
-    static String host = "http://sdk.open.api.igexin.com/apiex.htm";
+    private static String host = "http://sdk.open.api.igexin.com/apiex.htm";
 
     public static void main(String[] args) throws Exception {
         pushInfo("15957159506", "标题", "内容");

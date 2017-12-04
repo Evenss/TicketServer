@@ -21,9 +21,9 @@ public class EmailUtil {
 
     private Properties mProps;
     private Session mSession;
-    private EmailUtil util;
+    private static EmailUtil util;
 
-    public EmailUtil getInstance() {
+    public static EmailUtil getInstance() {
         if (null == util) {
             util = new EmailUtil();
         }

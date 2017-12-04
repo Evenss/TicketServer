@@ -60,4 +60,8 @@ public class UserService {
         }
         return user.set("email", email).update();
     }
+
+    public static User getUserById(int user_id){
+        return User.dao.findById(user_id);
+    }
 }

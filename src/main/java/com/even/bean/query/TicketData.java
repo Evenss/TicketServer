@@ -73,7 +73,7 @@ public class TicketData {
 
     public class Seat{
         @SerializedName("price")
-        public String price;
+        public double price;
         @SerializedName("count")
         public Integer count;
     }
