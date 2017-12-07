@@ -14,10 +14,6 @@ public class NetworkConnector {
 
     private MediaType JSON, FILE, JPG;
     private Gson mGson;
-    public static void main(String[] args){
-        getInstance().query("http://127.0.0.1:8080");
-    }
-
 
     public static NetworkConnector getInstance() {
         if (null == mNetworkConnector) {

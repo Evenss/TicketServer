@@ -14,10 +14,6 @@ public class PushUtil {
     private static String masterSecret = "lnvVt4cWb89DGueUF4kJU5";
     private static String host = "http://sdk.open.api.igexin.com/apiex.htm";
 
-    public static void main(String[] args) throws Exception {
-        pushInfo("15957159506", "标题", "内容");
-    }
-
     public static void pushInfo(String phone, String title, String content) {
         pushInfo(phone, title, content, "http://www.12306.cn/mormhweb/");
     }

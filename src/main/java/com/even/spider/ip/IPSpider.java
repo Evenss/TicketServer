@@ -16,10 +16,6 @@ import java.util.*;
 
 public class IPSpider {
 
-    public static void main(String[] args) {
-        start();
-    }
-
     public static void start() {
         System.out.println("IPSpider start");
         new Thread(new Runnable() {
