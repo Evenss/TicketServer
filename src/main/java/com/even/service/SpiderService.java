@@ -53,6 +53,13 @@ public class SpiderService {
     // 清空所有数据
     public static boolean clearAll() {
         System.out.println("ip table clear all ");
-        return new Ip().delete();
+        List<Ip> ipList = Ip.dao.find("SELECT * FROM ip");
+        boolean isClearAll = true;
+        for(Ip ip: ipList){
+            if(!new Ip().deleteById(ip.getId())){
+                isClearAll = false;
+            }
+        }
+        return isClearAll;
     }
 }
