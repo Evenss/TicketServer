@@ -4,6 +4,7 @@ import com.even.bean.monitor.TicketMonitor;
 import com.even.bean.monitor.TicketMonitorInfo;
 import com.even.bean.query.TicketData;
 import com.even.model.UserMonitorTicket;
+import com.even.spider.monitor.CheckTicket;
 import com.even.spider.query.NetCallBack;
 import com.even.spider.query.NetworkConnector;
 import com.even.util.APIUtil;
@@ -32,8 +33,8 @@ public class TicketService {
 
     // 设置票余量监控
     public static boolean setMonitor(int userId, String dptStation, String arrStation, long startDate, List<String> trainNo, List<String> seats) {
-        return new UserMonitorTicket()
-                .setUserId(userId)
+        UserMonitorTicket ticket = new UserMonitorTicket();
+        boolean isSaved = ticket.setUserId(userId)
                 .setState(false)
                 .setTicketCount(-1)
                 .setDptStationName(dptStation)
@@ -42,6 +43,10 @@ public class TicketService {
                 .setTrainNum(trainNo.toString())
                 .setSeats(seats.toString())
                 .setPrice((float) 0).save();
+        if (isSaved) {
+            CheckTicket.startThread(ticket);
+        }
+        return isSaved;
     }
 
     // 修改票监控中的信息
