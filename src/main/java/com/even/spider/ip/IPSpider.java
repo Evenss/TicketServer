@@ -4,6 +4,7 @@ import com.even.model.Ip;
 import com.even.service.SpiderService;
 import com.even.util.ConnectUtil;
 import com.even.util.JsoupUtil;
+import com.even.util.PLog;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -17,7 +18,7 @@ import java.util.*;
 public class IPSpider {
 
     public static void start() {
-        System.out.println("IPSpider start");
+        PLog.i("IPSpider start");
         // todo 暂时屏蔽一开始就更新ip表
 //        new Thread(new Runnable() {
 //            public void run() {
@@ -45,11 +46,11 @@ public class IPSpider {
         Ip ip = SpiderService.getUsableIpFirst();
         // 第一次爬取数据，或者数据库里面的数据都失效
         if ( true) {
-            System.out.println("use my ip");
+            PLog.i("use my ip");
             doc = JsoupUtil.getSource("http://www.xicidaili.com/nn/" + pageNum);
         } else {// 使用匿名IP爬取IP地址
-            System.out.println("use proxy ip");
-            System.out.println("ip：" + ip.getIp() + " port：" + ip.getPort());
+            PLog.i("use proxy ip");
+            PLog.i("ip：" + ip.getIp() + " port：" + ip.getPort());
             doc = JsoupUtil.getSource("http://www.xicidaili.com/nn/" + pageNum, ip.getIp(), ip.getPort());
         }
 
@@ -70,17 +71,17 @@ public class IPSpider {
             usableList = setUsableList(ipList, portList);
             addToDb(ipList, portList, usableList);
         } catch (Exception e) {
-            System.out.println("Error：网页解析出错");
+            PLog.e("Error：网页解析出错");
         }
 
     }
 
     // 更新数据库已有的Ip表状态(前50)
     public static void updateIpList() {
-        System.out.println("update ip list (count = 50)");
+        PLog.i("update ip list (count = 50)");
         //前50个中没有一个可用的
         if (null == SpiderService.getUsableIpBeforeNum(50)) {
-            System.out.println("no ip to use before 50");
+            PLog.i("no ip to use before 50");
             SpiderService.clearAll();
             return;
         }
@@ -100,7 +101,7 @@ public class IPSpider {
 
         //前50个中没有一个可用的
         if (null == SpiderService.getUsableIpBeforeNum(50)) {
-            System.out.println("no ip to use before 50");
+            PLog.i("no ip to use before 50");
             SpiderService.clearAll();
         }
     }

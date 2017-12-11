@@ -39,9 +39,9 @@ public class PushUtil {
             ret = push.pushMessageToSingle(message, target, e.getRequestId());
         }
         if (ret != null) {
-//            System.out.println(ret.getResponse().toString());
+//            PLog.i(ret.getResponse().toString());
         } else {
-            System.out.println("Error：服务器响应异常");
+            PLog.e("Error：服务器响应异常");
         }
     }
 

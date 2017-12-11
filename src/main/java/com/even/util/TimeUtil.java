@@ -46,17 +46,17 @@ public class TimeUtil {
     public static String getTimeCustomFormatted(Date date, boolean[] visibleField, String[] customString){
 
         if (visibleField == null || visibleField.length != 6){
-            System.out.println("Error：get time custom formatted, field array length is not correct");
+            PLog.e("Error：get time custom formatted, field array length is not correct");
 //            Log.e(TAG, "get time custom formatted, field array length is not correct");
             return null;
         }
 
         if (customString == null){
-            System.out.println("Error：get time custom formatted, str array length is null");
+            PLog.e("Error：get time custom formatted, str array length is null");
 //            Log.w(TAG, "get time custom formatted, str array length is null");
         }else{
             if (customString.length != 6){
-                System.out.println("Error：get time custom formatted, str array length is not 6");
+                PLog.e("Error：get time custom formatted, str array length is not 6");
                 return null;
             }
         }
@@ -121,7 +121,7 @@ public class TimeUtil {
                 result = "日";
                 break;
             default:
-                System.out.println("Error：get day of week, out of range");
+                PLog.e("Error：get day of week, out of range");
 //                Log.e(TAG, "get day of week, out of range");
                 result = "";
                 break;
@@ -152,8 +152,8 @@ public class TimeUtil {
             long ts = date.getTime();
             return ts/1000;
         }catch (ParseException e){
-            System.out.println("Error：date to stamp occur error");
-//            Log.e(TAG, "date to stamp occur error");
+            PLog.e("Error：date to stamp occur e");
+//            Log.e(TAG, "date to stamp occur e");
             return 0;
         }
     }

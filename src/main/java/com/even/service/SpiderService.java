@@ -1,6 +1,7 @@
 package com.even.service;
 
 import com.even.model.Ip;
+import com.even.util.PLog;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class SpiderService {
             try {
                 new Ip().setIp(ipList.get(i)).setPort(portList.get(i)).setUsable(usableList.get(i)).save();
             } catch (Exception e) {
-                System.out.println("第" + i + "个代理测试-->" + "IP:" + ipList.get(i) + "Port:" + portList.get(i) + " 已存在");
+                PLog.i("第" + i + "个代理测试-->" + "IP:" + ipList.get(i) + "Port:" + portList.get(i) + " 已存在");
                 continue;
             }
         }
@@ -52,7 +53,7 @@ public class SpiderService {
 
     // 清空所有数据
     public static boolean clearAll() {
-        System.out.println("ip table clear all ");
+        PLog.i("ip table clear all ");
         List<Ip> ipList = Ip.dao.find("SELECT * FROM ip");
         boolean isClearAll = true;
         for(Ip ip: ipList){

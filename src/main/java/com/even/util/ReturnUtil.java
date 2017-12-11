@@ -11,10 +11,10 @@ public class ReturnUtil {
 
     static {
         ERROR.put("code", 1);
-        ERROR.put("error", "操作失败。");
+        ERROR.put("e", "操作失败。");
 
         PARAM_ERROR.put("code", 1);
-        PARAM_ERROR.put("error", "参数错误。");
+        PARAM_ERROR.put("e", "参数错误。");
 
         SUCCESS.put("code", 0);
         SUCCESS.put("success", "操作成功。");
@@ -24,7 +24,7 @@ public class ReturnUtil {
     {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code", 1);
-        map.put("error", err);
+        map.put("e", err);
         return map;
     }
 

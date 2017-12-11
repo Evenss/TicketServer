@@ -1,6 +1,7 @@
 package com.even.spider.query;
 
 import com.even.bean.query.TicketData;
+import com.even.util.PLog;
 import com.google.gson.Gson;
 import okhttp3.*;
 import org.apache.commons.lang3.StringUtils;
@@ -80,7 +81,7 @@ public class NetworkConnector {
         try {
             response = call.execute();
             if (!response.isSuccessful()) {//访问不成功，ip被封，返回空内容
-                System.out.println("Error：IP被封");
+                PLog.e("Error：IP被封");
                 ticketResponse = new TicketData();
                 ticketResponse.data.ticketLists = null;
                 ticketResponse.data.arrStation = "";
@@ -92,7 +93,7 @@ public class NetworkConnector {
             ticketResponse = mGson.fromJson(string, TicketData.class);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error：网络异常");//访问不成功，网络差或没网，ip未被封，返回空
+            PLog.e("Error：网络异常");//访问不成功，网络差或没网，ip未被封，返回空
             return null;
         }
         return ticketResponse.data;

@@ -2,10 +2,10 @@ package com.even.spider.monitor;
 
 import com.even.bean.query.TicketData;
 import com.even.model.Ip;
-import com.even.model.UserMonitorTicket;
 import com.even.spider.Observable.TicketObserver;
 import com.even.spider.Observable.TicketSubject;
 import com.even.spider.query.NetworkConnector;
+import com.even.util.PLog;
 import com.even.util.StringUtil;
 import com.even.util.ThreadSleepUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -68,7 +68,7 @@ public class CheckTask implements Runnable {
     private int accessNet(long startTime, int userId, String trainNum, String seats, String url, TicketSubject subject, String ip, int port) {
         long nowTime = System.currentTimeMillis();
         if ((nowTime - startTime) > PERIOD_DAY) {
-            System.out.println("Error：查询订单超过1天！");
+            PLog.e("Error：查询订单超过1天！");
             return ORDER_OUT_DATE_ERROR;
         }
 
@@ -80,7 +80,7 @@ public class CheckTask implements Runnable {
         }
 
         if (null == ticketInfo) {
-            System.out.println("Error：查询订单失败！");
+            PLog.e("Error：查询订单失败！");
             ThreadSleepUtil.threadSleep(Thread.currentThread());
             accessNet(startTime, userId, trainNum, seats, url, subject, ip, port);
             return NET_WORK_ERROR;
@@ -88,7 +88,7 @@ public class CheckTask implements Runnable {
 
         // 代理IP被封
         if (null == ticketInfo.ticketLists) {
-            System.out.println("Error：查询订单失败！");
+            PLog.e("Error：查询订单失败！");
             Ip proxyIp = updateIpList();
             ThreadSleepUtil.threadSleep(Thread.currentThread());
             if (null != proxyIp) {

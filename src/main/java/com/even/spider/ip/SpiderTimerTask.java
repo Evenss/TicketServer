@@ -1,6 +1,7 @@
 package com.even.spider.ip;
 
 import com.even.service.SpiderService;
+import com.even.util.PLog;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -32,11 +33,11 @@ public class SpiderTimerTask {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("现在时间：" + new Date());
+                PLog.i("现在时间：" + new Date());
                 if(SpiderService.clearAll()){
-                    System.out.println("已清空所有数据");
+                    PLog.i("已清空所有数据");
                 }else{
-                    System.out.println("数据未全部清空");
+                    PLog.i("数据未全部清空");
                 }
                 for (int i = 1; i <= 10; i++) {
                     IPSpider.getNetProxy(i);

@@ -1,7 +1,6 @@
 package com.even.util;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +17,10 @@ public class ConnectUtil {
         List<Boolean> usableList = new ArrayList<Boolean>();
         for (int i = 0; i < size; i++) {
             usableList.add(i, checkProxyIp(ipList.get(i), portList.get(i)));
-            System.out.println("第" + i + "个IP测试完成");
+            PLog.i("第" + i + "个IP测试完成");
         }
         long endTime = System.currentTimeMillis(); //获取结束时间
-        System.out.println("共" + size + "个测试，花" + (endTime - startTime) / 1000 + "秒");
+        PLog.i("共" + size + "个测试，花" + (endTime - startTime) / 1000 + "秒");
         return usableList;
     }
 

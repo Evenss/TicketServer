@@ -77,13 +77,13 @@ public class EmailUtil {
             transport.close();
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
-            System.out.println("Error：发送邮件：NoSuchProviderException 异常");
+            PLog.e("Error：发送邮件：NoSuchProviderException 异常");
         } catch (MessagingException e) {
             e.printStackTrace();
-            System.out.println("Error：发送邮件：MessagingException 异常");
+            PLog.e("Error：发送邮件：MessagingException 异常");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error：发送邮件：异常");
+            PLog.e("Error：发送邮件：异常");
         }
 
     }
@@ -123,13 +123,13 @@ public class EmailUtil {
             return message;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-            System.out.println("Error：邮件解析异常");
+            PLog.e("Error：邮件解析异常");
         } catch (MessagingException e) {
             e.printStackTrace();
-            System.out.println("Error：邮件异常");
+            PLog.e("Error：邮件异常");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error：发送邮件异常");
+            PLog.e("Error：发送邮件异常");
         }
         return null;
     }

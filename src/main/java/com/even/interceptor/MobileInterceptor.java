@@ -22,7 +22,7 @@ public class MobileInterceptor implements Interceptor {
                 json = JSON.parseObject(HttpKit.readData(controller.getRequest()));
             } catch (Exception e) {
                 e.printStackTrace();
-                controller.renderJson(Ret.fail("error", "提交参数异常。"));
+                controller.renderJson(Ret.fail("e", "提交参数异常。"));
                 return;
             }
             if (json != null) {
@@ -32,11 +32,11 @@ public class MobileInterceptor implements Interceptor {
                     inv.invoke();
                 }else{
                     if (!json.containsKey("token")) {
-                        controller.renderJson(Ret.fail("error", "token提交异常。"));
+                        controller.renderJson(Ret.fail("e", "token提交异常。"));
                         return;
                     }
                     if (!TokenUtil.checkToken(json.getString("token"))) {
-                        controller.renderJson(Ret.fail("error", "授权失效,请重新登录。"));
+                        controller.renderJson(Ret.fail("e", "授权失效,请重新登录。"));
                         return;
                     }
                     inv.getController().setAttr("data", json);

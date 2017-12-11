@@ -75,7 +75,7 @@ public class JsoupUtil {
                 for (Element ele : eles) {
                     String link = ele.attr("abs:href");
                     if (link != null && link.length() > 0) {
-                        System.out.println(link);
+                        PLog.i(link);
                     }
                 }
                 return;

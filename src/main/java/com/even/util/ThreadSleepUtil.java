@@ -7,7 +7,7 @@ public class ThreadSleepUtil {
         try {
             thread.sleep(PERIOD_TIME);
         } catch (Exception e) {
-            System.out.println("Error：线程休眠出错");
+            PLog.e("Error：线程休眠出错");
         }
     }
 }
