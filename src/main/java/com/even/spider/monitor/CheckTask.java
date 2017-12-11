@@ -93,7 +93,7 @@ public class CheckTask implements Runnable {
     private int accessNet(long startTime, int userId, String trainNum, String seats, String url, TicketSubject subject, String ip, int port) {
         long nowTime = System.currentTimeMillis();
         if ((nowTime - startTime) > PERIOD_DAY) {
-            PLog.e("Error：查询订单超过1天！");
+            PLog.e("Error：查询订单超期！");
             Map<String, Double> map = new HashMap<String, Double>();
             map.put("isOver", (double) -1);
             map.put("userId", (double) userId);

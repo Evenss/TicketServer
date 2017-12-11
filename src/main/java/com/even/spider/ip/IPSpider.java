@@ -20,15 +20,15 @@ public class IPSpider {
     public static void start() {
         PLog.i("IPSpider start");
         // todo 暂时屏蔽一开始就更新ip表
-//        new Thread(new Runnable() {
-//            public void run() {
-//                updateIpList();
-//                System.out.println("IP table update done");
-//                for (int i = 1; i <= 5; i++) {
-//                    getNetProxy(i);
-//                }
-//            }
-//        }).start();
+        new Thread(new Runnable() {
+            public void run() {
+                updateIpList();
+                System.out.println("IP table update done");
+                for (int i = 1; i <= 5; i++) {
+                    getNetProxy(i);
+                }
+            }
+        }).start();
         // 设置定时任务
         SpiderTimerTask.setTimeTask();
     }
@@ -45,7 +45,7 @@ public class IPSpider {
         Document doc;
         Ip ip = SpiderService.getUsableIpFirst();
         // 第一次爬取数据，或者数据库里面的数据都失效
-        if ( true) {
+        if ( true) {//todo 得到第一个可用ip，这里不能用
             PLog.i("use my ip");
             doc = JsoupUtil.getSource("http://www.xicidaili.com/nn/" + pageNum);
         } else {// 使用匿名IP爬取IP地址

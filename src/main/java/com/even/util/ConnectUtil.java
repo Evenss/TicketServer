@@ -17,7 +17,10 @@ public class ConnectUtil {
         List<Boolean> usableList = new ArrayList<Boolean>();
         for (int i = 0; i < size; i++) {
             usableList.add(i, checkProxyIp(ipList.get(i), portList.get(i)));
-            PLog.i("第" + i + "个IP测试完成");
+            if (0 == i) PLog.i("第0个IP测试完成");
+            if (i / 10 > 0 && i % 10 == 0) {//每10个输出一次
+                PLog.i("第" + i + "个IP测试完成");
+            }
         }
         long endTime = System.currentTimeMillis(); //获取结束时间
         PLog.i("共" + size + "个测试，花" + (endTime - startTime) / 1000 + "秒");
