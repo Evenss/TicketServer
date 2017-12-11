@@ -7,6 +7,7 @@ import com.even.spider.Observable.TicketObserver;
 import com.even.spider.Observable.TicketSubject;
 import com.even.spider.query.NetworkConnector;
 import com.even.util.StringUtil;
+import com.even.util.ThreadSleepUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -80,6 +81,7 @@ public class CheckTask implements Runnable {
 
         if (null == ticketInfo) {
             System.out.println("Error：查询订单失败！");
+            ThreadSleepUtil.threadSleep(Thread.currentThread());
             accessNet(startTime, userId, trainNum, seats, url, subject, ip, port);
             return NET_WORK_ERROR;
         }
@@ -88,6 +90,7 @@ public class CheckTask implements Runnable {
         if (null == ticketInfo.ticketLists) {
             System.out.println("Error：查询订单失败！");
             Ip proxyIp = updateIpList();
+            ThreadSleepUtil.threadSleep(Thread.currentThread());
             if (null != proxyIp) {
                 accessNet(startTime, userId, trainNum, seats, url, subject, proxyIp.getIp(), proxyIp.getPort());//重新分配代理IP
             } else {
