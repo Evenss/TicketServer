@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.even.spider.ip.IPSpider.updateIpList;
+
 public class SpiderTimerTask {
 
     //时间间隔(一天)
@@ -34,11 +36,7 @@ public class SpiderTimerTask {
             @Override
             public void run() {
                 PLog.i("现在时间：" + new Date());
-                if(SpiderService.clearAll()){
-                    PLog.i("已清空所有数据");
-                }else{
-                    PLog.i("数据未全部清空");
-                }
+                updateIpList();
                 for (int i = 1; i <= 10; i++) {
                     IPSpider.getNetProxy(i);
                 }

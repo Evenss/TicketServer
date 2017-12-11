@@ -20,15 +20,15 @@ public class IPSpider {
     public static void start() {
         PLog.i("IPSpider start");
         // todo 暂时屏蔽一开始就更新ip表
-        new Thread(new Runnable() {
-            public void run() {
-                updateIpList();
-                System.out.println("IP table update done");
-                for (int i = 1; i <= 5; i++) {
-                    getNetProxy(i);
-                }
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            public void run() {
+//                updateIpList();
+//                System.out.println("IP table update done");
+//                for (int i = 1; i <= 5; i++) {
+//                    getNetProxy(i);
+//                }
+//            }
+//        }).start();
         // 设置定时任务
         SpiderTimerTask.setTimeTask();
     }
@@ -76,17 +76,21 @@ public class IPSpider {
 
     }
 
-    // 更新数据库已有的Ip表状态(前50)
+    // 更新数据库已有的Ip表状态(前100)
     public static void updateIpList() {
-        PLog.i("update ip list (count = 50)");
-        //前50个中没有一个可用的
-        if (null == SpiderService.getUsableIpBeforeNum(50)) {
-            PLog.i("no ip to use before 50");
-            SpiderService.clearAll();
+        PLog.i("update ip list (count = 100)");
+        //前100个中没有一个可用的
+        if (null == SpiderService.getUsableIpBeforeNum(100)) {
+            PLog.i("no ip to use before 100");
+            if(SpiderService.clearAll()){
+                PLog.i("已清空所有数据");
+            }else{
+                PLog.i("数据未全部清空");
+            }
             return;
         }
 
-        List<Ip> list = SpiderService.getIPByPage(1, 50);
+        List<Ip> list = SpiderService.getIPByPage(1, 100);
         List<Integer> idList = new ArrayList<Integer>();
         List<String> ipList = new ArrayList<String>();
         List<Integer> portList = new ArrayList<Integer>();
@@ -99,10 +103,14 @@ public class IPSpider {
 
         SpiderService.updateIPListState(idList, usableList);
 
-        //前50个中没有一个可用的
-        if (null == SpiderService.getUsableIpBeforeNum(50)) {
-            PLog.i("no ip to use before 50");
-            SpiderService.clearAll();
+        //前100个中没有一个可用的
+        if (null == SpiderService.getUsableIpBeforeNum(100)) {
+            PLog.i("no ip to use before 100");
+            if(SpiderService.clearAll()){
+                PLog.i("已清空所有数据");
+            }else{
+                PLog.i("数据未全部清空");
+            }
         }
     }
 
