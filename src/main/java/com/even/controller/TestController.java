@@ -12,5 +12,6 @@ public class TestController extends Controller {
 
     public void test(){
         renderText("123");
+        System.out.println("test logs!");
     }
 }
