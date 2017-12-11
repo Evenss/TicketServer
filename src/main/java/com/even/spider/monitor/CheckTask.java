@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class CheckTask implements Runnable {
     private static final long PERIOD_DAY = 24 * 60 * 60 * 1000;//订单最多爬取时间
-    private static final int ACCESS_ERROR = -4;                 //访问异常
+    private static final int NO_TICKET = -4;                    //没有余量
     private static final int NET_WORK_ERROR = -3;               //网络错误
     private static final int ORDER_OUT_DATE_ERROR = -2;         //订单超时
     private static final int IP_ERROR = -1;                     //IP被封
@@ -51,11 +51,36 @@ public class CheckTask implements Runnable {
 
         long startTime = System.currentTimeMillis();
         if (ipList.size() != 0) {
-            String ip = ipList.get(0).getIp();
-            int port = ipList.get(0).getPort();
-            accessNet(startTime, userId, trainNum, seats, url, subject, ip, port);
+            //使用代理IP循环访问
+            while (true) {
+                String ip;
+                int code, port;
+                if (null != ipList.get(0)) {
+                    ip = ipList.get(0).getIp();
+                    port = ipList.get(0).getPort();
+                    code = accessNet(startTime, userId, trainNum, seats, url, subject, ip, port);
+                } else {
+                    code = accessNet(startTime, userId, trainNum, seats, url, subject);
+                }
+                if (NO_TICKET == code || NET_WORK_ERROR == code) {
+                    ThreadSleepUtil.threadSleep(Thread.currentThread());
+                } else if (IP_ERROR == code) {
+                    updateIpList();//重新分配代理IP
+                    ThreadSleepUtil.threadSleep(Thread.currentThread());
+                } else {
+                    break;
+                }
+            }
         } else {
-            accessNet(startTime, userId, trainNum, seats, url, subject);
+            //使用本机IP循环访问
+            while (true) {
+                int code = accessNet(startTime, userId, trainNum, seats, url, subject);
+                if (NO_TICKET == code || NET_WORK_ERROR == code || IP_ERROR == code) {
+                    ThreadSleepUtil.threadSleep(Thread.currentThread());
+                } else {
+                    break;
+                }
+            }
         }
 
     }
@@ -81,21 +106,12 @@ public class CheckTask implements Runnable {
 
         if (null == ticketInfo) {
             PLog.e("Error：查询订单失败！");
-            ThreadSleepUtil.threadSleep(Thread.currentThread());
-            accessNet(startTime, userId, trainNum, seats, url, subject, ip, port);
             return NET_WORK_ERROR;
         }
 
         // 代理IP被封
         if (null == ticketInfo.ticketLists) {
             PLog.e("Error：查询订单失败！");
-            Ip proxyIp = updateIpList();
-            ThreadSleepUtil.threadSleep(Thread.currentThread());
-            if (null != proxyIp) {
-                accessNet(startTime, userId, trainNum, seats, url, subject, proxyIp.getIp(), proxyIp.getPort());//重新分配代理IP
-            } else {
-                accessNet(startTime, userId, trainNum, seats, url, subject);//使用本机IP
-            }
             return IP_ERROR;
         }
         if (getTicketCount(ticketInfo.ticketLists, trainNum, seats) > 0) {
@@ -106,16 +122,13 @@ public class CheckTask implements Runnable {
             subject.notifyObserver(map);
             return SUCCESS;
         }
-        return ACCESS_ERROR;
+        return NO_TICKET;
     }
 
     // 更新代理IP表
-    private Ip updateIpList() {
-        if (ipList.size() == 1) {
+    private void updateIpList() {
+        if (ipList.size() >= 1) {
             ipList.remove(0);
-            return ipList.get(0);
-        } else {
-            return null;
         }
     }
 
