@@ -17,22 +17,37 @@ public class TicketObserver implements Observer {
 
     public void update(Object o) {
         Map<String, Double> map = (Map<String, Double>) o;
+        int isOver = map.get("isOver").intValue();// >0 未超期 <0 已超期
         int userId = map.get("userId").intValue();
+        if(isOver < 0){
+            UserMonitorTicket ticket = TicketService.updateMonitorTicket(userId, -1, 0);
+            notifyUser(ticket, isOver);
+            return;
+        }
         int ticketCount = map.get("ticketCount").intValue();
         float price = map.get("price").floatValue();
         UserMonitorTicket ticket = TicketService.updateMonitorTicket(userId, ticketCount, price);
-        notifyUser(ticket);
+        notifyUser(ticket, isOver);
     }
 
     // 发送邮件等通知用户
-    private void notifyUser(UserMonitorTicket ticket) {
-        String title = "有票提醒";
-        String content = "您预定的\n" +
-                "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
-                "车次为：" + ticket.getTrainNum() + "\n" +
-                "座位类型为：" + ticket.getSeats() + "\n" +
-                "已经有票，赶快去买票吧！";
-
+    private void notifyUser(UserMonitorTicket ticket, int isOver) {
+        String title, content;
+        if (isOver > 0) {
+            title = "有票提醒";
+            content = "您预定的\n" +
+                    "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
+                    "车次为：" + ticket.getTrainNum() + "\n" +
+                    "座位类型为：" + ticket.getSeats() + "\n" +
+                    "已经有票，赶快去买票吧！";
+        } else {
+            title = "订单超期";
+            content = "您预定的\n" +
+                    "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
+                    "车次为：" + ticket.getTrainNum() + "\n" +
+                    "座位类型为：" + ticket.getSeats() + "\n" +
+                    "订单已经超期，请重新添加订单";
+        }
 
         //  发送邮箱通知
         String email = UserService.getUserById(ticket.getUserId()).getEmail();
@@ -44,6 +59,4 @@ public class TicketObserver implements Observer {
         String phone = UserService.getUserById(ticket.getUserId()).getPhone();
         PushUtil.pushInfo(phone, title, content);// 这里可以设置点击之后跳转到哪里
     }
-
-
 }

@@ -94,6 +94,10 @@ public class CheckTask implements Runnable {
         long nowTime = System.currentTimeMillis();
         if ((nowTime - startTime) > PERIOD_DAY) {
             PLog.e("Error：查询订单超过1天！");
+            Map<String, Double> map = new HashMap<String, Double>();
+            map.put("isOver", (double) -1);
+            map.put("userId", (double) userId);
+            subject.notifyObserver(map);
             return ORDER_OUT_DATE_ERROR;
         }
 
@@ -116,6 +120,7 @@ public class CheckTask implements Runnable {
         }
         if (getTicketCount(ticketInfo.ticketLists, trainNum, seats) > 0) {
             Map<String, Double> map = new HashMap<String, Double>();
+            map.put("isOver", (double) 1);
             map.put("userId", (double) userId);
             map.put("ticketCount", (double) getTicketCount(ticketInfo.ticketLists, trainNum, seats));
             map.put("price", getPrice(ticketInfo.ticketLists, trainNum, seats));
