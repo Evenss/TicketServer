@@ -88,7 +88,7 @@ public class NetworkConnector {
                 return ticketResponse.data;
             }
             String string = response.body().string();
-            System.out.println(string);
+//            System.out.println(string);
             ticketResponse = mGson.fromJson(string, TicketData.class);
         } catch (IOException e) {
             e.printStackTrace();

@@ -70,7 +70,7 @@ public class IPSpider {
             usableList = setUsableList(ipList, portList);
             addToDb(ipList, portList, usableList);
         } catch (Exception e) {
-            System.out.println("网页解析出错");
+            System.out.println("Error：网页解析出错");
         }
 
     }
