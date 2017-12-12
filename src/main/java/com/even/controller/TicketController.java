@@ -34,8 +34,8 @@ public class TicketController extends Controller {
         String destination = json.getString("destination");
         long date = json.getLong("date");
         boolean isGD = json.getBoolean("isGD");
-        int pageSize = json.getInteger("page_size");
-        int pageNum = json.getInteger("page_number");
+        int pageSize = json.getInteger("pageSize");
+        int pageNum = json.getInteger("pageNumber");
 
         TicketData.TicketInfo ticket = TicketService.query(departure, destination, date, isGD, pageSize, pageNum);
         MobileTicket mobileTicket = new MobileTicket();
@@ -76,7 +76,7 @@ public class TicketController extends Controller {
         if (json == null) throw new RuntimeException("数据异常");
         String token = json.getString("token");
         if (StringUtils.isBlank(token)) throw new RuntimeException("token异常");
-        int userId = json.getInteger("user_id");
+        int userId = json.getInteger("userId");
         String dptStation = json.getString("dptStation");
         String arrStation = json.getString("arrStation");
         long startDate = json.getLong("startDate");
@@ -101,9 +101,9 @@ public class TicketController extends Controller {
         if (json == null) throw new RuntimeException("数据异常");
         String token = json.getString("token");
         if (StringUtils.isBlank(token)) throw new RuntimeException("token异常");
-        int userId = json.getInteger("user_id");
-        int pageSize = json.getInteger("page_size");
-        int pageNum = json.getInteger("page_number");
+        int userId = json.getInteger("userId");
+        int pageSize = json.getInteger("pageSize");
+        int pageNum = json.getInteger("pageNumber");
 
         try {
             TicketMonitor ticketMonitor = TicketService.queryMyOrder(userId,pageSize,pageNum);

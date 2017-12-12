@@ -83,9 +83,9 @@ public class UserController extends Controller {
         if (json == null) throw new RuntimeException("token异常");
         String token = json.getString("token");
         if (StringUtils.isBlank(token)) throw new RuntimeException("token异常");
-        int userId = json.getInteger("user_id");
-        String passwordOld = json.getString("password_old");
-        String passwordNew = json.getString("password_new");
+        int userId = json.getInteger("userId");
+        String passwordOld = json.getString("passwordOld");
+        String passwordNew = json.getString("passwordNew");
         try {
             if (UserService.changePassword(userId, passwordOld, passwordNew)) {
                 renderJson(ReturnUtil.DATA("修改密码成功。"));
@@ -103,7 +103,7 @@ public class UserController extends Controller {
         if (json == null) throw new RuntimeException("token异常");
         String token = json.getString("token");
         if (StringUtils.isBlank(token)) throw new RuntimeException("token异常");
-        int userId = json.getInteger("user_id");
+        int userId = json.getInteger("userId");
         String email = json.getString("email");
         try {
             if (UserService.setEmail(userId, email)) {

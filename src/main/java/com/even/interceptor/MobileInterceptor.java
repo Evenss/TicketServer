@@ -2,6 +2,7 @@ package com.even.interceptor;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.even.util.ReturnUtil;
 import com.even.util.TokenUtil;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
@@ -12,8 +13,6 @@ import org.apache.log4j.Logger;
 
 public class MobileInterceptor implements Interceptor {
 
-    public static Logger logger = Logger.getLogger(MobileInterceptor.class);
-
     public void intercept(Invocation inv) {
         Controller controller = inv.getController();
         if (controller.getRequest().getRequestURI().startsWith("/")) {
@@ -22,21 +21,21 @@ public class MobileInterceptor implements Interceptor {
                 json = JSON.parseObject(HttpKit.readData(controller.getRequest()));
             } catch (Exception e) {
                 e.printStackTrace();
-                controller.renderJson(Ret.fail("e", "提交参数异常。"));
+                controller.renderJson(Ret.fail("error", "提交参数异常。"));
                 return;
             }
             if (json != null) {
                 String requestUrl = controller.getRequest().getRequestURI();
-                if (requestUrl.contains("/user/login") || requestUrl.contains("/user/register") || requestUrl.contains("/ticket/query")){
+                if (requestUrl.contains("/user/login") || requestUrl.contains("/user/logout") || requestUrl.contains("/user/register") || requestUrl.contains("/ticket/query")) {
                     inv.getController().setAttr("data", json);
                     inv.invoke();
-                }else{
+                } else {
                     if (!json.containsKey("token")) {
-                        controller.renderJson(Ret.fail("e", "token提交异常。"));
+                        controller.renderJson(ReturnUtil.ERROR("token提交异常。"));
                         return;
                     }
                     if (!TokenUtil.checkToken(json.getString("token"))) {
-                        controller.renderJson(Ret.fail("e", "授权失效,请重新登录。"));
+                        controller.renderJson(ReturnUtil.ERROR("授权失效,请重新登录。"));
                         return;
                     }
                     inv.getController().setAttr("data", json);
