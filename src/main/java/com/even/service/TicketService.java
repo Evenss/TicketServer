@@ -26,6 +26,8 @@ public class TicketService {
 
     public static TicketData.TicketInfo query(String departure, String destination, long date, boolean isGD, int pageSize, int pageNum) {
         String dateStr = TimeUtil.getTimeFormatted(date, TimeUtil.FORMAT_YEAR_MONTH_DAY);
+        if (1 != pageNum)
+            pageNum = (pageNum - 1) * pageSize;
         String url = APIUtil.getTicketUrl(departure, destination, dateStr, pageNum, pageSize);
         TicketData.TicketInfo ticketInfo = NetworkConnector.getInstance().query(url);
         return ticketInfo;

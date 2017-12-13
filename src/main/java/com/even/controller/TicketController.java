@@ -40,7 +40,7 @@ public class TicketController extends Controller {
         TicketData.TicketInfo ticket = TicketService.query(departure, destination, date, isGD, pageSize, pageNum);
         MobileTicket mobileTicket = new MobileTicket();
         if (null != ticket) {
-            if (ticket.ticketLists.size() == 0) {
+            if (ticket.ticketLists.size() != pageSize) {
                 mobileTicket.data.lastPage = true;
             } else {
                 mobileTicket.data.lastPage = false;
