@@ -9,9 +9,6 @@
     <list default="true" id="db842c15-411c-47c6-b704-d745fdf0fb93" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -62,8 +59,8 @@
       <file leaf-file-name="AppConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+            <state relative-caret-position="114">
+              <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -137,7 +134,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
               <caret line="36" column="56" lean-forward="false" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-              <folding />
+              <folding>
+                <marker date="1513315261000" expanded="true" signature="2085:2106" ph="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -240,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/ip/SpiderTimerTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/ip/IPSpider.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/util/ReturnUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/interceptor/MobileInterceptor.java" />
@@ -251,6 +249,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" />
       </list>
     </option>
   </component>
@@ -756,7 +755,7 @@
       <workItem from="1512552668273" duration="259000" />
       <workItem from="1512609737369" duration="37827000" />
       <workItem from="1512954459219" duration="52199000" />
-      <workItem from="1513300038751" duration="8777000" />
+      <workItem from="1513300038751" duration="9069000" />
     </task>
     <task id="LOCAL-00001" summary="1.基本架构设计完成2.加入用户登录、登出3.数据库表等信息创建">
       <created>1511178827358</created>
@@ -975,11 +974,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513300833867</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="修改推送内容">
+      <created>1513315265649</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1513315265649</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295100000" />
+    <option name="totallyTimeSpent" value="295392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1033,7 +1039,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改用户订单返回内容" />
     <MESSAGE value="1.修改ip表结构2.添加爬虫工具类3.爬虫模块基本完成" />
     <MESSAGE value="1.爬虫定时任务2.加入代理IP测试工具" />
     <MESSAGE value="1.初始化爬虫放入子线程2.加入发送email功能" />
@@ -1058,7 +1063,8 @@
     <MESSAGE value="用户板块联调完成" />
     <MESSAGE value="票余量板块联调完成" />
     <MESSAGE value="1.修改推送内容2.票监控完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.修改推送内容2.票监控完成" />
+    <MESSAGE value="修改推送内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改推送内容" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1442,7 +1448,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="36" column="56" lean-forward="false" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-          <folding />
+          <folding>
+            <marker date="1513315261000" expanded="true" signature="2085:2106" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1456,8 +1464,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        <state relative-caret-position="114">
+          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding />
         </state>
       </provider>

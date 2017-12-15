@@ -17,7 +17,7 @@ import com.jfinal.template.Engine;
 public class AppConfig extends JFinalConfig{
 
     public static void main(String[] args) {
-        JFinal.start("src/main/webapp", 80, "/");
+        JFinal.start("src/main/webapp", 8080, "/");
     }
 
     @Override
