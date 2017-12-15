@@ -146,8 +146,6 @@ public class CheckTask implements Runnable {
     // 取出票余量
     private int getTicketCount(List<TicketData.TicketList> ticketLists, String trainNum, String seats) {
         List<String> seatList = StringUtil.listUtil(seats);
-        String trainNumStr = trainNum.replace("[","");
-        trainNumStr = trainNumStr.replace("]","");
         int size = seatList.size();
         for (TicketData.TicketList ticket : ticketLists) {
             if (trainNum.contains(ticket.trainNo)) {

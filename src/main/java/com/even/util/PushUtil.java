@@ -52,14 +52,15 @@ public class PushUtil {
         template.setAppId(appId);
         template.setAppkey(appKey);
 
-        Style1 style = new Style1();
+        Style6 style = new Style6();//文本扩展模式
         // 设置通知栏标题与内容
         style.setTitle(title);
-        style.setText(content);
+//        style.setText("setText");
+        style.setBigStyle2(content);
         //todo 配置通知栏图标 客户端修改
-        style.setLogo("icon.png");
+        style.setLogo("push.png");
         // 配置通知栏网络图标
-        style.setLogoUrl("");
+        style.setLogoUrl("push_small.png");
         // 设置通知是否响铃，震动，或者可清除
         style.setRing(true);
         style.setVibrate(true);

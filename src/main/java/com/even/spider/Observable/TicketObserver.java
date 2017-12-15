@@ -42,7 +42,7 @@ public class TicketObserver implements Observer {
                     "座位类型为：" + ticket.getSeats() + "\n" +
                     "已经有票，赶快去买票吧！";
         } else {
-            title = "订单超期";
+            title = "超期提醒";
             content = "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
                     "车次为：" + ticket.getTrainNum() + "\n" +
                     "座位类型为：" + matchSeat(ticket.getSeats()) + "\n" +
