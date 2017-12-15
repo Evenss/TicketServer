@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db842c15-411c-47c6-b704-d745fdf0fb93" name="Default" comment="">
+    <list default="true" id="db842c15-411c-47c6-b704-d745fdf0fb93" name="Default" comment="test port">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" />
     </list>
@@ -60,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+              <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -755,7 +755,7 @@
       <workItem from="1512552668273" duration="259000" />
       <workItem from="1512609737369" duration="37827000" />
       <workItem from="1512954459219" duration="52199000" />
-      <workItem from="1513300038751" duration="9069000" />
+      <workItem from="1513300038751" duration="9253000" />
     </task>
     <task id="LOCAL-00001" summary="1.基本架构设计完成2.加入用户登录、登出3.数据库表等信息创建">
       <created>1511178827358</created>
@@ -981,11 +981,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513315265649</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="test port">
+      <created>1513323357613</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1513323357613</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295392000" />
+    <option name="totallyTimeSpent" value="295576000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1039,7 +1046,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.修改ip表结构2.添加爬虫工具类3.爬虫模块基本完成" />
     <MESSAGE value="1.爬虫定时任务2.加入代理IP测试工具" />
     <MESSAGE value="1.初始化爬虫放入子线程2.加入发送email功能" />
     <MESSAGE value="修改消息推送工具类" />
@@ -1064,7 +1070,8 @@
     <MESSAGE value="票余量板块联调完成" />
     <MESSAGE value="1.修改推送内容2.票监控完成" />
     <MESSAGE value="修改推送内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改推送内容" />
+    <MESSAGE value="test port" />
+    <option name="LAST_COMMIT_MESSAGE" value="test port" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1465,7 +1472,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
           <folding />
         </state>
       </provider>
