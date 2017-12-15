@@ -9,6 +9,7 @@
     <list default="true" id="db842c15-411c-47c6-b704-d745fdf0fb93" name="Default" comment="test port">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,6 +62,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
               <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -233,7 +244,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/even/model/_generatorDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/query/NetworkConnector.java" />
         <option value="$PROJECT_DIR$/logs/ticket_server_error.log" />
-        <option value="$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/util/PLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/util/ConnectUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/ip/SpiderTimerTask.java" />
@@ -249,6 +259,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" />
       </list>
     </option>
@@ -373,120 +384,6 @@
               <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="spider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="spider" type="462c0819:PsiDirectoryNode" />
-              <item name="ip" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="spider" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="spider" type="462c0819:PsiDirectoryNode" />
-              <item name="Observable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="even" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ticket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicketServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -755,7 +652,7 @@
       <workItem from="1512552668273" duration="259000" />
       <workItem from="1512609737369" duration="37827000" />
       <workItem from="1512954459219" duration="52199000" />
-      <workItem from="1513300038751" duration="9253000" />
+      <workItem from="1513300038751" duration="10533000" />
     </task>
     <task id="LOCAL-00001" summary="1.基本架构设计完成2.加入用户登录、登出3.数据库表等信息创建">
       <created>1511178827358</created>
@@ -988,11 +885,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513323357613</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="test port">
+      <created>1513323537878</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1513323537878</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295576000" />
+    <option name="totallyTimeSpent" value="296856000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1080,35 +984,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar!/okhttp3/OkHttpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="658" column="28" lean-forward="false" selection-start-line="658" selection-start-column="28" selection-end-line="658" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/bean/query/TicketData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/model/base/BaseIp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/jfinal/jfinal/3.2/jfinal-3.2.jar!/com/jfinal/plugin/druid/DruidPlugin.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar!/okhttp3/Call.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1224,13 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/even/util/JsoupUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1332,6 +1200,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-476">
           <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1465,6 +1334,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1619">
           <caret line="113" column="9" lean-forward="false" selection-start-line="111" selection-start-column="15" selection-end-line="113" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/ticket_war_exploded.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>

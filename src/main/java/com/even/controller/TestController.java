@@ -11,7 +11,7 @@ public class TestController extends Controller {
     private static Logger log = Logger.getLogger(TestController.class);
 
     public void index(){
-        renderText("test");
+        renderText("test2");
     }
 
     public void test(){
