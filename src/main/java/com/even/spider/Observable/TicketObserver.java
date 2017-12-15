@@ -5,9 +5,11 @@ import com.even.service.TicketService;
 import com.even.service.UserService;
 import com.even.util.EmailUtil;
 import com.even.util.PushUtil;
+import com.even.util.StringUtil;
 import com.even.util.TimeUtil;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,7 +21,7 @@ public class TicketObserver implements Observer {
         Map<String, Double> map = (Map<String, Double>) o;
         int isOver = map.get("isOver").intValue();// >0 未超期 <0 已超期
         int userId = map.get("userId").intValue();
-        if(isOver < 0){
+        if (isOver < 0) {
             UserMonitorTicket ticket = TicketService.updateMonitorTicket(userId, -1, 0);
             notifyUser(ticket, isOver);
             return;
@@ -35,17 +37,15 @@ public class TicketObserver implements Observer {
         String title, content;
         if (isOver > 0) {
             title = "有票提醒";
-            content = "您预定的\n" +
-                    "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
+            content = "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
                     "车次为：" + ticket.getTrainNum() + "\n" +
                     "座位类型为：" + ticket.getSeats() + "\n" +
                     "已经有票，赶快去买票吧！";
         } else {
             title = "订单超期";
-            content = "您预定的\n" +
-                    "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
+            content = "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
                     "车次为：" + ticket.getTrainNum() + "\n" +
-                    "座位类型为：" + ticket.getSeats() + "\n" +
+                    "座位类型为：" + matchSeat(ticket.getSeats()) + "\n" +
                     "订单已经超期，请重新添加订单";
         }
 
@@ -58,5 +58,29 @@ public class TicketObserver implements Observer {
         // APP应用通知
         String phone = UserService.getUserById(ticket.getUserId()).getPhone();
         PushUtil.pushInfo(phone, title, content);// 这里可以设置点击之后跳转到哪里
+    }
+
+    private String matchSeat(String seats) {
+        String seatStr = "[";
+        List<String> seatList = StringUtil.listUtil(seats);
+        for (int i = 0; i < seatList.size(); i++) {
+            if ("zero".equals(seatList.get(i))) {
+                seatStr += "无座";
+            } else if ("one".equals(seatList.get(i))) {
+                seatStr += "一等座";
+            } else if ("two".equals(seatList.get(i))) {
+                seatStr += "二等座";
+            } else if ("business".equals(seatList.get(i))) {
+                seatStr += "商务座";
+            } else if ("soft".equals(seatList.get(i))) {
+                seatStr += "软卧";
+            } else if ("hard_sleep".equals(seatList.get(i))) {
+                seatStr += "硬卧";
+            } else {
+                seatStr += "硬座";
+            }
+        }
+        seatStr += "]";
+        return seatStr;
     }
 }

@@ -45,13 +45,16 @@ public class CheckTask implements Runnable {
     }
 
     public void startTask(int userId, String trainNum, String seats, String url) {
+        PLog.i("userId: " + userId + " startTask");
         // 观察者注册
         TicketSubject subject = new TicketSubject();
         subject.addObserver(new TicketObserver());
 
         long startTime = System.currentTimeMillis();
-        if (ipList.size() != 0) {
+//todo        if (ipList.size() != 0) {
+        if (false) {
             //使用代理IP循环访问
+            PLog.i("使用代理IP循环爬取");
             while (true) {
                 String ip;
                 int code, port;
@@ -73,6 +76,7 @@ public class CheckTask implements Runnable {
             }
         } else {
             //使用本机IP循环访问
+            PLog.i("使用本机IP循环爬取");
             while (true) {
                 int code = accessNet(startTime, userId, trainNum, seats, url, subject);
                 if (NO_TICKET == code || NET_WORK_ERROR == code || IP_ERROR == code) {
@@ -102,7 +106,8 @@ public class CheckTask implements Runnable {
         }
 
         TicketData.TicketInfo ticketInfo;
-        if (StringUtils.isBlank(ip) && port == -1) {
+//todo        if (StringUtils.isBlank(ip) && port == -1) {
+        if (true) {
             ticketInfo = NetworkConnector.getInstance().query(url);
         } else {
             ticketInfo = NetworkConnector.getInstance().query(url, ip, port);
@@ -124,6 +129,7 @@ public class CheckTask implements Runnable {
             map.put("userId", (double) userId);
             map.put("ticketCount", (double) getTicketCount(ticketInfo.ticketLists, trainNum, seats));
             map.put("price", getPrice(ticketInfo.ticketLists, trainNum, seats));
+            PLog.i("userId：" + userId + " 发送通知给用户");
             subject.notifyObserver(map);
             return SUCCESS;
         }
@@ -140,6 +146,8 @@ public class CheckTask implements Runnable {
     // 取出票余量
     private int getTicketCount(List<TicketData.TicketList> ticketLists, String trainNum, String seats) {
         List<String> seatList = StringUtil.listUtil(seats);
+        String trainNumStr = trainNum.replace("[","");
+        trainNumStr = trainNumStr.replace("]","");
         int size = seatList.size();
         for (TicketData.TicketList ticket : ticketLists) {
             if (trainNum.contains(ticket.trainNo)) {

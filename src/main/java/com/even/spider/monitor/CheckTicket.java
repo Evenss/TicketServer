@@ -4,6 +4,7 @@ import com.even.model.Ip;
 import com.even.model.UserMonitorTicket;
 import com.even.service.SpiderService;
 import com.even.util.APIUtil;
+import com.even.util.PLog;
 import com.even.util.TimeUtil;
 
 import java.util.ArrayList;
@@ -20,10 +21,11 @@ public class CheckTicket {
 
     // 开启线程查询
     public static void startThread(UserMonitorTicket ticket) {
+        PLog.i("userId: " + ticket.getUserId() + "startThread");
         ipList = SpiderService.getUsableIpList();
 
         String dateStr = TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY);
-        String url = APIUtil.getTicketUrl(ticket.getArrStationName(), ticket.getDptStationName(), dateStr, 1, 100);
+        String url = APIUtil.getTicketUrl(ticket.getDptStationName(), ticket.getArrStationName(), dateStr, 1, 100);
         CheckTask task = new CheckTask(ticket.getUserId(), ticket.getTrainNum(), ticket.getSeats(), url, ipList);
         executor.execute(task);
 

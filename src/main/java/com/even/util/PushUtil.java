@@ -9,9 +9,9 @@ import com.gexin.rp.sdk.template.LinkTemplate;
 import com.gexin.rp.sdk.template.style.*;
 
 public class PushUtil {
-    private static String appId = "PSg0aZXd6O7m9pmR1kIfd9";
-    private static String appKey = "v0mU1uSbKT8Jdce2nie0R2";
-    private static String masterSecret = "lnvVt4cWb89DGueUF4kJU5";
+    private static String appId = "f14jeuBHYk9N2y53iaAbl1";
+    private static String appKey = "omDMWIqrKNAjMAWJYCt9QA";
+    private static String masterSecret = "Q6qyVfybqr6R80NwxxXcp";
     private static String host = "http://sdk.open.api.igexin.com/apiex.htm";
 
     public static void pushInfo(String phone, String title, String content) {
@@ -19,6 +19,7 @@ public class PushUtil {
     }
 
     public static void pushInfo(String phone, String title, String content, String clickUrl) {
+        PLog.i("pushInfo");
         IGtPush push = new IGtPush(host, appKey, masterSecret);
         LinkTemplate template = linkTemplateDemo(title, content, clickUrl);
         SingleMessage message = new SingleMessage();
