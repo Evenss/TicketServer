@@ -34,24 +34,26 @@ public class TicketObserver implements Observer {
 
     // 发送邮件等通知用户
     private void notifyUser(UserMonitorTicket ticket, int isOver) {
-        String title, content;
+        String title, text, content;
         if (isOver > 0) {
             title = "有票提醒";
-            content = "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
-                    "车次为：" + ticket.getTrainNum() + "\n" +
-                    "座位类型为：" + ticket.getSeats() + "\n" +
-                    "已经有票，赶快去买票吧！";
-        } else {
-            title = "超期提醒";
+            text = "已经有票,点击查看详情";
             content = "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
                     "车次为：" + ticket.getTrainNum() + "\n" +
                     "座位类型为：" + matchSeat(ticket.getSeats()) + "\n" +
-                    "订单已经超期，请重新添加订单";
+                    "已经有票，赶快去买票吧！";
+        } else {
+            title = "超期提醒";
+            text = "已经超期,点击查看详情";
+            content = "日期为：" + TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY) + "\n" +
+                    "车次为：" + ticket.getTrainNum() + "\n" +
+                    "座位类型为：" + matchSeat(ticket.getSeats()) + "\n" +
+                    "记录已经超期，请重新添加记录";
         }
 
         // APP应用通知
         String phone = UserService.getUserById(ticket.getUserId()).getPhone();
-        PushUtil.pushInfo(phone, title, content);// 这里可以设置点击之后跳转到哪里
+        PushUtil.pushInfo(phone, text, title, content);// 这里可以设置点击之后跳转到哪里
 
         //  发送邮箱通知
         String email = UserService.getUserById(ticket.getUserId()).getEmail();

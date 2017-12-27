@@ -14,14 +14,14 @@ public class PushUtil {
     private static String masterSecret = "Q6qyVfybqr6R80NwxxXcp";
     private static String host = "http://sdk.open.api.igexin.com/apiex.htm";
 
-    public static void pushInfo(String phone, String title, String content) {
-        pushInfo(phone, title, content, "http://www.12306.cn/mormhweb/");
+    public static void pushInfo(String phone, String title, String text, String content) {
+        pushInfo(phone, title, text, content, "http://www.12306.cn/mormhweb/");
     }
 
-    public static void pushInfo(String phone, String title, String content, String clickUrl) {
+    public static void pushInfo(String phone, String title, String text, String content, String clickUrl) {
         PLog.i("pushInfo");
         IGtPush push = new IGtPush(host, appKey, masterSecret);
-        LinkTemplate template = linkTemplateDemo(title, content, clickUrl);
+        LinkTemplate template = linkTemplateDemo(title, text, content, clickUrl);
         SingleMessage message = new SingleMessage();
         message.setOffline(true);
         // 离线有效时间
@@ -40,13 +40,13 @@ public class PushUtil {
             ret = push.pushMessageToSingle(message, target, e.getRequestId());
         }
         if (ret != null) {
-//            PLog.i(ret.getResponse().toString());
+            PLog.i(ret.getResponse().toString());
         } else {
             PLog.e("Error：服务器响应异常");
         }
     }
 
-    private static LinkTemplate linkTemplateDemo(String title, String content, String clickUrl) {
+    private static LinkTemplate linkTemplateDemo(String title, String text, String content, String clickUrl) {
         LinkTemplate template = new LinkTemplate();
         // 设置APPID与APPKEY
         template.setAppId(appId);
@@ -55,7 +55,7 @@ public class PushUtil {
         Style6 style = new Style6();//文本扩展模式
         // 设置通知栏标题与内容
         style.setTitle(title);
-//        style.setText("setText");
+        style.setText(text);
         style.setBigStyle2(content);
         //todo 配置通知栏图标 客户端修改
         style.setLogo("push.png");
