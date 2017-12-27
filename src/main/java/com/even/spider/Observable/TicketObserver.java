@@ -49,15 +49,15 @@ public class TicketObserver implements Observer {
                     "订单已经超期，请重新添加订单";
         }
 
+        // APP应用通知
+        String phone = UserService.getUserById(ticket.getUserId()).getPhone();
+        PushUtil.pushInfo(phone, title, content);// 这里可以设置点击之后跳转到哪里
+
         //  发送邮箱通知
         String email = UserService.getUserById(ticket.getUserId()).getEmail();
         if (!StringUtils.isBlank(email)) {
             EmailUtil.getInstance().sendEmail(email, title, content);
         }
-
-        // APP应用通知
-        String phone = UserService.getUserById(ticket.getUserId()).getPhone();
-        PushUtil.pushInfo(phone, title, content);// 这里可以设置点击之后跳转到哪里
     }
 
     private String matchSeat(String seats) {
