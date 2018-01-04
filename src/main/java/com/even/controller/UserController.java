@@ -90,7 +90,7 @@ public class UserController extends Controller {
             if (UserService.changePassword(userId, passwordOld, passwordNew)) {
                 renderJson(ReturnUtil.DATA("修改密码成功。"));
             } else {
-                renderJson(ReturnUtil.ERROR("操作失败。"));
+                renderJson(ReturnUtil.ERROR("密码不正确。"));
             }
         } catch (Exception e) {
             e.printStackTrace();
