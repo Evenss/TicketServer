@@ -22,6 +22,7 @@ public class CheckTicket {
     // 开启线程查询
     public static void startThread(UserMonitorTicket ticket) {
         PLog.i("userId: " + ticket.getUserId() + "startThread");
+        PLog.i("order Id: " + ticket.getId());
         ipList = SpiderService.getUsableIpList();
 
         String dateStr = TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY);
