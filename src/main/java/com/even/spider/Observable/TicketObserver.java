@@ -3,10 +3,7 @@ package com.even.spider.Observable;
 import com.even.model.UserMonitorTicket;
 import com.even.service.TicketService;
 import com.even.service.UserService;
-import com.even.util.EmailUtil;
-import com.even.util.PushUtil;
-import com.even.util.StringUtil;
-import com.even.util.TimeUtil;
+import com.even.util.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -22,6 +19,7 @@ public class TicketObserver implements Observer {
         int isOver = map.get("isOver").intValue();// >0 未超期 <0 已超期
         int userId = map.get("userId").intValue();
         if (isOver < 0) {
+            PLog.e("订单已过期");
             UserMonitorTicket ticket = TicketService.updateMonitorTicket(userId, -1, 0);
             notifyUser(ticket, isOver);
             return;

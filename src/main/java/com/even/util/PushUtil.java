@@ -40,7 +40,7 @@ public class PushUtil {
             ret = push.pushMessageToSingle(message, target, e.getRequestId());
         }
         if (ret != null) {
-            PLog.i(ret.getResponse().toString());
+//            PLog.i(ret.getResponse().toString());
         } else {
             PLog.e("Error：服务器响应异常");
         }

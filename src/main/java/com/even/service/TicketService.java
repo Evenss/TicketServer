@@ -8,6 +8,7 @@ import com.even.spider.monitor.CheckTicket;
 import com.even.spider.query.NetCallBack;
 import com.even.spider.query.NetworkConnector;
 import com.even.util.APIUtil;
+import com.even.util.PLog;
 import com.even.util.StringUtil;
 import com.even.util.TimeUtil;
 import com.jfinal.plugin.activerecord.Page;
@@ -54,6 +55,7 @@ public class TicketService {
     // 修改票监控中的信息
     public static UserMonitorTicket updateMonitorTicket(int userId, int ticketCount, float price) {
         UserMonitorTicket ticket = UserMonitorTicket.dao.findFirst("SELECT * FROM user_monitor_ticket WHERE user_id = ?", userId);
+        PLog.i("update ticket info , = "+ticket.toJson());
         ticket.setState(true).setTicketCount(ticketCount).setPrice(price).update();
         return ticket;
     }
