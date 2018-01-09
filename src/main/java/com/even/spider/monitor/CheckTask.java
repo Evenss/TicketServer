@@ -47,7 +47,6 @@ public class CheckTask implements Runnable {
     }
 
     public void startTask(int id, int userId, String trainNum, String seats, String url) {
-        PLog.i("userId: " + userId + " startTask");
         // 观察者注册
         TicketSubject subject = new TicketSubject();
         subject.addObserver(new TicketObserver());
@@ -129,6 +128,7 @@ public class CheckTask implements Runnable {
         if (getTicketCount(ticketInfo.ticketLists, trainNum, seats) > 0) {
             Map<String, Double> map = new HashMap<String, Double>();
             map.put("isOver", (double) 1);
+            map.put("id", (double) id);
             map.put("userId", (double) userId);
             map.put("ticketCount", (double) getTicketCount(ticketInfo.ticketLists, trainNum, seats));
             map.put("price", getPrice(ticketInfo.ticketLists, trainNum, seats));
