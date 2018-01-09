@@ -53,8 +53,8 @@ public class TicketService {
     }
 
     // 修改票监控中的信息
-    public static UserMonitorTicket updateMonitorTicket(int userId, int ticketCount, float price) {
-        UserMonitorTicket ticket = UserMonitorTicket.dao.findFirst("SELECT * FROM user_monitor_ticket WHERE user_id = ?", userId);
+    public static UserMonitorTicket updateMonitorTicket(int id, int ticketCount, float price) {
+        UserMonitorTicket ticket = UserMonitorTicket.dao.findFirst("SELECT * FROM user_monitor_ticket WHERE id = ?", id);
         PLog.i("update ticket info , = "+ticket.toJson());
         ticket.setState(true).setTicketCount(ticketCount).setPrice(price).update();
         return ticket;

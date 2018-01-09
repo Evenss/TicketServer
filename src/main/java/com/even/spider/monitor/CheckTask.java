@@ -27,12 +27,14 @@ public class CheckTask implements Runnable {
     private static final int SUCCESS = 0;                       //成功
 
     private List<Ip> ipList = new ArrayList<Ip>();
+    private int id;
     private int userId;
     private String trainNum;
     private String seats;
     private String url;
 
-    public CheckTask(int userId, String trainNum, String seats, String url, List<Ip> ipList) {
+    public CheckTask(int id, int userId, String trainNum, String seats, String url, List<Ip> ipList) {
+        this.id = id;
         this.userId = userId;
         this.trainNum = trainNum;
         this.seats = seats;
@@ -41,10 +43,10 @@ public class CheckTask implements Runnable {
     }
 
     public void run() {
-        startTask(userId, trainNum, seats, url);
+        startTask(id, userId, trainNum, seats, url);
     }
 
-    public void startTask(int userId, String trainNum, String seats, String url) {
+    public void startTask(int id, int userId, String trainNum, String seats, String url) {
         PLog.i("userId: " + userId + " startTask");
         // 观察者注册
         TicketSubject subject = new TicketSubject();
@@ -61,9 +63,9 @@ public class CheckTask implements Runnable {
                 if (null != ipList.get(0)) {
                     ip = ipList.get(0).getIp();
                     port = ipList.get(0).getPort();
-                    code = accessNet(startTime, userId, trainNum, seats, url, subject, ip, port);
+                    code = accessNet(startTime, id, userId, trainNum, seats, url, subject, ip, port);
                 } else {
-                    code = accessNet(startTime, userId, trainNum, seats, url, subject);
+                    code = accessNet(startTime, id, userId, trainNum, seats, url, subject);
                 }
                 if (NO_TICKET == code || NET_WORK_ERROR == code) {
                     ThreadSleepUtil.threadSleep(Thread.currentThread());
@@ -78,7 +80,7 @@ public class CheckTask implements Runnable {
             //使用本机IP循环访问
             PLog.i("使用本机IP循环爬取");
             while (true) {
-                int code = accessNet(startTime, userId, trainNum, seats, url, subject);
+                int code = accessNet(startTime, id, userId, trainNum, seats, url, subject);
                 if (NO_TICKET == code || NET_WORK_ERROR == code || IP_ERROR == code) {
                     ThreadSleepUtil.threadSleep(Thread.currentThread());
                 } else {
@@ -90,16 +92,17 @@ public class CheckTask implements Runnable {
     }
 
     // 连接网络请求数据
-    private int accessNet(long startTime, int userId, String trainNum, String seats, String url, TicketSubject subject) {
-        return accessNet(startTime, userId, trainNum, seats, url, subject, "", -1);
+    private int accessNet(long startTime, int id, int userId, String trainNum, String seats, String url, TicketSubject subject) {
+        return accessNet(startTime, id, userId, trainNum, seats, url, subject, "", -1);
     }
 
-    private int accessNet(long startTime, int userId, String trainNum, String seats, String url, TicketSubject subject, String ip, int port) {
+    private int accessNet(long startTime, int id, int userId, String trainNum, String seats, String url, TicketSubject subject, String ip, int port) {
         long nowTime = System.currentTimeMillis();
         if ((nowTime - startTime) > PERIOD_DAY) {
             PLog.e("Error：查询订单超期！");
             Map<String, Double> map = new HashMap<String, Double>();
             map.put("isOver", (double) -1);
+            map.put("id", (double) id);
             map.put("userId", (double) userId);
             subject.notifyObserver(map);
             return ORDER_OUT_DATE_ERROR;

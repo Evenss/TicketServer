@@ -26,7 +26,7 @@ public class CheckTicket {
 
         String dateStr = TimeUtil.getTimeFormatted(ticket.getStartDate(), TimeUtil.FORMAT_YEAR_MONTH_DAY);
         String url = APIUtil.getTicketUrl(ticket.getDptStationName(), ticket.getArrStationName(), dateStr, 1, 100);
-        CheckTask task = new CheckTask(ticket.getUserId(), ticket.getTrainNum(), ticket.getSeats(), url, ipList);
+        CheckTask task = new CheckTask(ticket.getId(), ticket.getUserId(), ticket.getTrainNum(), ticket.getSeats(), url, ipList);
         executor.execute(task);
 
 //        executor.shutdown();// 结束任务

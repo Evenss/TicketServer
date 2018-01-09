@@ -17,16 +17,17 @@ public class TicketObserver implements Observer {
     public void update(Object o) {
         Map<String, Double> map = (Map<String, Double>) o;
         int isOver = map.get("isOver").intValue();// >0 未超期 <0 已超期
+        int id = map.get("id").intValue();
         int userId = map.get("userId").intValue();
         if (isOver < 0) {
             PLog.e("订单已过期");
-            UserMonitorTicket ticket = TicketService.updateMonitorTicket(userId, -1, 0);
+            UserMonitorTicket ticket = TicketService.updateMonitorTicket(id, -1, 0);
             notifyUser(ticket, isOver);
             return;
         }
         int ticketCount = map.get("ticketCount").intValue();
         float price = map.get("price").floatValue();
-        UserMonitorTicket ticket = TicketService.updateMonitorTicket(userId, ticketCount, price);
+        UserMonitorTicket ticket = TicketService.updateMonitorTicket(id, ticketCount, price);
         notifyUser(ticket, isOver);
     }
 

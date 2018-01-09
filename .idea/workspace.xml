@@ -6,11 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db842c15-411c-47c6-b704-d745fdf0fb93" name="Default" comment="test port">
+    <list default="true" id="db842c15-411c-47c6-b704-d745fdf0fb93" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/service/TicketService.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/service/TicketService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTicket.java" afterPath="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTicket.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,8 +52,8 @@
       <file leaf-file-name="AppConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+            <state relative-caret-position="311">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,21 +69,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TicketService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TicketService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/service/TicketService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+            <state relative-caret-position="272">
+              <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TicketObserver.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TicketObserver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+            <state relative-caret-position="418">
+              <caret line="29" column="93" lean-forward="true" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -104,8 +105,8 @@
       <file leaf-file-name="CheckTicket.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTicket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="228">
+              <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -114,8 +115,8 @@
       <file leaf-file-name="CheckTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="132" column="25" lean-forward="false" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
+            <state relative-caret-position="177">
+              <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -146,7 +147,7 @@
       <file leaf-file-name="EmailUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/even/util/EmailUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1138">
+            <state relative-caret-position="418">
               <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding />
             </state>
@@ -253,15 +254,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/even/interceptor/MobileInterceptor.java" />
         <option value="$PROJECT_DIR$/logs/ticket_server_info.log" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/controller/TicketController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTicket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/util/TestUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/controller/TestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTicket.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/even/service/TicketService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java" />
       </list>
     </option>
   </component>
@@ -765,7 +766,7 @@
       <workItem from="1515029119563" duration="4828000" />
       <workItem from="1515143202554" duration="609000" />
       <workItem from="1515148132778" duration="307000" />
-      <workItem from="1515504122397" duration="1829000" />
+      <workItem from="1515504122397" duration="3077000" />
     </task>
     <task id="LOCAL-00001" summary="1.基本架构设计完成2.加入用户登录、登出3.数据库表等信息创建">
       <created>1511178827358</created>
@@ -1061,11 +1062,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515228677521</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="test">
+      <created>1515506552627</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1515506552627</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312008000" />
+    <option name="totallyTimeSpent" value="313256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1134,7 +1142,6 @@
     <MESSAGE value="循环查询查询票余量" />
     <MESSAGE value="超时通知" />
     <MESSAGE value="IP表操作更新" />
-    <MESSAGE value="test" />
     <MESSAGE value="修改定时更新表逻辑" />
     <MESSAGE value="用户板块联调完成" />
     <MESSAGE value="票余量板块联调完成" />
@@ -1144,7 +1151,8 @@
     <MESSAGE value="推送修改" />
     <MESSAGE value="用户提示修改" />
     <MESSAGE value="test port" />
-    <option name="LAST_COMMIT_MESSAGE" value="test port" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1446,14 +1454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/even/service/SpiderService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -1465,22 +1465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTicket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/util/EmailUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1138">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/even/util/PushUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1488,14 +1472,6 @@
           <folding>
             <marker date="1515506473000" expanded="true" signature="2136:2157" ph="//..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="132" column="25" lean-forward="false" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1510,18 +1486,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/common/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+        <state relative-caret-position="311">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/util/EmailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/monitor/CheckTicket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/even/service/TicketService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+        <state relative-caret-position="272">
+          <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/even/spider/Observable/TicketObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="29" column="93" lean-forward="true" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
           <folding />
         </state>
       </provider>
