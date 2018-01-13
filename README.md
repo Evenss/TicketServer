@@ -8,6 +8,8 @@
 * 爬取西刺代理IP网址信息（含获取和更新代理IP信息）
 * 发送APP通知和发送邮件通知（APP通知集成个推）
 
+PS：APP项目详情请见，https://github.com/Evenss/TicketAssistant
+
 > 项目架构及设计
 
 * 总体架构采用轻量级框架`JFinal`
